@@ -54,7 +54,7 @@ Follow these steps to run the portfolio website locally:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/portfolio.git
+   git clone https://github.com/meali029/portfolio.git
    ```
 
 2. Navigate to the project directory:
