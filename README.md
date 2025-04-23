@@ -104,9 +104,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 You can reach out to me via email or through the contact form on my portfolio website.
 
-- **Email**: your.email@example.com
-- **LinkedIn**: [Your LinkedIn](https://www.linkedin.com/in/mehboob-ali2004)
-- **GitHub**: [Your GitHub](https://github.com/meali029)
+- **Email**: mehboobaliali150@gmail.com
+- **LinkedIn**: [Mehboob Ali](https://www.linkedin.com/in/mehboob-ali2004)
+- **GitHub**: [meali029 GitHub](https://github.com/meali029)
 
 ---
 
