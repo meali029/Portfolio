@@ -22,7 +22,7 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="py-16 mb-8 bg-gray-100 text-zinc-800">
+    <section id="contact" className="py-16  bg-gray-100 text-zinc-800">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-3xl font-bold mb-10 text-center text-gray-900">📬 Get in Touch</h2>
 
