@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Home/Hero";
@@ -8,34 +9,38 @@ import Experience from "./components/Experience/Experience";
 import Contact from "./components/Contact/Contact";
 
 const App = () => {
-  return (
-    <>
-      <Navbar />
+  const [darkMode, setDarkMode] = useState(false);
 
-      <main className="pt-24"> {/* Adds padding to avoid being hidden behind navbar */}
+  return (
+    <div className={darkMode ? 'dark' : ''}>
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+
+      <main className= {` pt-24 bg-white ${darkMode?'dark:bg-zinc-900':'*:  '} transition-colors duration-500`}>
         <section id="home">
-          <Hero />
+          <Hero darkMode={darkMode} />
         </section>
 
-        <section id="about" >
-
-          <About />
+        <section id="about">
+          <About darkMode={darkMode} />
         </section>
 
         <section id="projects">
-          <Project />
+          <Project darkMode={darkMode} />
         </section>
+
         <section id="resume">
-          <Resume />
+          <Resume darkMode={darkMode} />
         </section>
+
         <section id="experience">
-          <Experience />
+          <Experience darkMode={darkMode} />
         </section>
+
         <section id="contact">
-<Contact/>
+          <Contact darkMode={darkMode} />
         </section>
       </main>
-    </>
+    </div>
   );
 };
 
