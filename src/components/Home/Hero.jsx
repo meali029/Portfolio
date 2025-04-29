@@ -23,6 +23,7 @@ const Hero = ({ darkMode }) => {
       setTimeout(() => setReverse(true), 1000);
       return;
     }
+
     if (subIndex === 0 && reverse) {
       setReverse(false);
       setIndex((prev) => (prev + 1) % typingTexts.length);
@@ -37,6 +38,7 @@ const Hero = ({ darkMode }) => {
     return () => clearTimeout(timeout);
   }, [subIndex, index, reverse]);
 
+  // Blinking Cursor
   useEffect(() => {
     const blinkInterval = setInterval(() => {
       setBlink((prev) => !prev);
@@ -46,84 +48,117 @@ const Hero = ({ darkMode }) => {
 
   return (
     <section
-      className={`relative min-h-screen flex flex-col justify-center items-center text-center px-6 transition-colors duration-500 ${
-        darkMode
-          ? 'bg-gradient-to-b from-zinc-900 via-zinc-800 to-zinc-900 text-white'
-          : 'bg-gradient-to-b from-white via-gray-100 to-white text-zinc-900'
-      }`}
+    className={`relative  h-[45rem] md:h-[40rem] md:pt-0 md:pb-40 flex flex-col justify-center items-center text-center px-6 transition-colors duration-500 ${
+      darkMode
+        ? 'bg-gradient-to-b from-zinc-900 via-zinc-800 to-black text-white'
+        : 'bg-white text-black'
+    }`}
+  >
+    {/* Social Icons */}
+    <div className="mt-10 order-2 md:fixed md:left-8 flex md:flex-col gap-10 md:gap-6 z-20 relative">
+  {/* Animated Background Blob */}
+  <motion.div
+    initial={{ opacity: 0.4, scale: 0.8 }}
+    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+    transition={{
+      duration: 5,
+      repeat: Infinity,
+      repeatType: 'loop',
+      ease: 'easeInOut',
+    }}
+    className={`absolute md:-z-10  w-70 h-30 md:w-30 md:h-60 blur-2xl rounded-full ${
+      darkMode ? 'bg-white' : 'bg-black'
+    }`}
+    style={{ top: '-40px', left: '-40px' }}
+  />
+
+  {[
+    { icon: FaGithub, link: "https://github.com/meali029" },
+    { icon: FaLinkedin, link: "https://linkedin.com/in/mehboob-ali2004" },
+    { icon: FaEnvelope, link: "mailto:mehboobaliali150@gmail.com" },
+  ].map(({ icon: Icon, link }, idx) => (
+    <a
+      key={idx}
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="p-3 rounded-full border border-current hover:bg-opacity-10 transition-all duration-300 hover:scale-110 shadow-md backdrop-blur-sm"
     >
-      {/* Social Links (Left side for big screens, Top for small screens) */}
-      <div className="mt-10 order-2 md:fixed md:left-8 flex md:flex-col gap-10 md:gap-6 z-20">
-        {[
-          { icon: FaGithub, link: "https://github.com/meali029" },
-          { icon: FaLinkedin, link: "https://linkedin.com/in/mehboob-ali2004" },
-          { icon: FaEnvelope, link: "mailto:mehboobaliali150@gmail.com" },
-        ].map(({ icon: Icon, link }, idx) => (
-          <a
-            key={idx}
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 md:p-3 rounded-full border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-md hover:scale-110"
-          >
-            <Icon size={20} />
-          </a>
-        ))}
-      </div>
+      <Icon size={20} />
+    </a>
+  ))}
+</div>
 
-      {/* Main Section */}
-      <motion.div className="flex flex-col justify-center items-center mt-16 md:mt-0">
-        {/* Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight"
+  
+    {/* Main Content */}
+    <motion.div
+      className="flex flex-col justify-center items-center mt-16 md:mt-0"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+    >
+      <motion.h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 tracking-tight ">
+        Hi, I’m Mehboob Ali
+      </motion.h1>
+  
+      <motion.p
+        className="text-base sm:text-lg md:text-xl max-w-2xl mb-8 font-medium"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.4 }}
+      >
+        {text}
+        <span className="ml-1">{blink ? '|' : ' '}</span>
+      </motion.p>
+  
+      {/* Buttons */}
+      <motion.div
+        className="flex flex-wrap justify-center gap-4 md:gap-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, delay: 0.6 }}
+      >
+        {/* View Projects */}
+        <a
+          href="#projects"
+          className={`px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-md ${
+            darkMode
+              ? 'bg-white text-black border border-white hover:bg-zinc-100'
+              : 'bg-black text-white border border-black hover:bg-zinc-800'
+          }`}
         >
-          Hi, I’m <span className={`${darkMode ? 'text-blue-400' : 'text-blue-600'}`}>Mehboob Ali</span>
-        </motion.h1>
-
-        {/* Typewriter */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="text-base sm:text-lg md:text-xl max-w-2xl mb-8 font-medium"
+          View Projects
+        </a>
+  
+        {/* Contact Me */}
+        <a
+          href="#contact"
+          className={`px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-md ${
+            darkMode
+              ? 'border border-white text-white hover:bg-white hover:text-black'
+              : 'border border-black text-black hover:bg-black hover:text-white'
+          }`}
         >
-          {text}
-          <span className="text-blue-500">{blink ? '|' : ' '}</span>
-        </motion.p>
-
-        {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.5 }}
-          className="flex flex-wrap justify-center gap-4 md:gap-6"
+          Contact Me
+        </a>
+  
+        {/* Resume */}
+        <a
+          href="/resume.pdf"
+          download
+          className={`px-6 py-3 flex items-center justify-center gap-2 rounded-full transition-all duration-300 hover:scale-105 shadow-md ${
+            darkMode
+              ? 'border border-white text-white hover:bg-white hover:text-black'
+              : 'border border-black text-black hover:bg-black hover:text-white'
+          }`}
         >
-          <a
-            href="#projects"
-            className="px-5 py-2 md:px-6 md:py-3 rounded-full text-white bg-blue-600 hover:bg-blue-700 transition-transform transform hover:scale-105 shadow-lg"
-          >
-            View Projects
-          </a>
-          <a
-            href="#contact"
-            className="px-5 py-2 md:px-6 md:py-3 rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-transform transform hover:scale-105"
-          >
-            Contact Me
-          </a>
-          <a
-            href="/resume.pdf"
-            download
-            className="px-5 py-2 md:px-6 md:py-3 flex items-center justify-center gap-2 rounded-full border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-transform transform hover:scale-105"
-          >
-            <FaDownload size={18} />
-            Resume
-          </a>
-        </motion.div>
+          <FaDownload size={18} />
+          Resume
+        </a>
       </motion.div>
-    </section>
+    </motion.div>
+  </section>
+  
   );
 };
 
