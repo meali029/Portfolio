@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope, FaDownload } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import Notification from '../../components/Notification/Notification';
 
 const typingTexts = [
   "Full Stack Developer",
@@ -14,6 +15,7 @@ const Hero = ({ darkMode }) => {
   const [subIndex, setSubIndex] = useState(0);
   const [blink, setBlink] = useState(true);
   const [reverse, setReverse] = useState(false);
+  const [notification, setNotification] = useState(null);
 
   // Typewriter Effect
   useEffect(() => {
@@ -39,13 +41,20 @@ const Hero = ({ darkMode }) => {
   }, [subIndex, index, reverse]);
 
   // Blinking Cursor
-  useEffect(() => {
-    const blinkInterval = setInterval(() => {
-      setBlink((prev) => !prev);
-    }, 500);
-    return () => clearInterval(blinkInterval);
-  }, []);
-
+  // useEffect(() => {
+  //   const blinkInterval = setInterval(() => {
+  //     setBlink((prev) => !prev);
+  //   }, 500);
+  //   return () => clearInterval(blinkInterval);
+  // }, []);
+    // Function to trigger a notification
+    const triggerNotification = (message, type) => {
+      setNotification({ message, type });
+    };
+    useEffect(() => {
+      // Trigger a "Website under construction" notification on component mount
+      triggerNotification('Website is under construction 🚧', 'warning');
+    }, []);
   return (
     <section
     className={`relative  h-[45rem] md:h-[40rem] md:pt-0 md:pb-40 flex flex-col justify-center items-center text-center px-6 transition-colors duration-500 ${
@@ -156,7 +165,24 @@ const Hero = ({ darkMode }) => {
           Resume
         </a>
       </motion.div>
+       {/* Trigger Notifications Example */}
+       {/* <button
+        onClick={() => triggerNotification('N', 'info')}
+        className="mt-5 px-6 py-3 rounded-full bg-blue-500 text-white"
+      >
+        Show Notification
+      </button> */}
+
+      {/* Notification Display */}
     </motion.div>
+      {notification && (
+        <Notification
+          message={notification.message}
+          type={notification.type}
+          autoHide={true}
+          onClose={() => setNotification(null)}
+        />
+      )}
   </section>
   
   );
