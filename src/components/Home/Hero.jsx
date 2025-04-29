@@ -53,7 +53,7 @@ const Hero = ({ darkMode }) => {
     };
     useEffect(() => {
       // Trigger a "Website under construction" notification on component mount
-      triggerNotification('Website is under construction 🚧', 'warning');
+      triggerNotification('Website is under development 👨‍💻', 'warning');
     }, []);
   return (
     <section
