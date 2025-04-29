@@ -9,7 +9,7 @@ import Experience from "./components/Experience/Experience";
 import Contact from "./components/Contact/Contact";
 
 const App = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   return (
     <div className={darkMode ? 'dark' : ''}>
