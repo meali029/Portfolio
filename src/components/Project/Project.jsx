@@ -1,102 +1,195 @@
-import React, { useRef } from 'react';
-import { Github, ArrowLeftCircle, ArrowRightCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import projects from './project.json';
+import { Globe, Github, ChevronLeft, ChevronRight } from 'lucide-react';
 
-const projects = [
-  {
-    title: "SkillUp – Freelancing Platform",
-    description: "An AI-powered freelancing platform made for Pakistani students and freelancers.",
-    github: "https://github.com/yourusername/skillup",
-    image: "/projects/skillup.png"
-  },
-  {
-    title: "AmitPatel Website",
-    description: "Client portfolio & blog site using the MERN stack. Clean, responsive, and deployed on Vercel.",
-    github: "https://github.com/yourusername/amitpatel-website",
-    image: "/projects/amitpatel.png"
-  },
-  {
-    title: "Task Manager (Java)",
-    description: "A Java desktop app with user login, task creation, and reminders.",
-    github: "https://github.com/yourusername/task-manager-java",
-    image: "/projects/taskmanager.png"
-  },
-  {
-    title: "WeatherApp",
-    description: "Weather forecast app using RapidAPI and Bootstrap.",
-    github: "https://github.com/yourusername/weather-app",
-    image: "/projects/weatherapp.png"
-  }
-];
-
-const Project = () => {
-  const scrollRef = useRef(null);
+const Project = ({ darkMode }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const maxIndex = projects.length - 1;
 
   const scroll = (direction) => {
-    const container = scrollRef.current;
-    const scrollAmount = 350;
-
-    if (direction === 'left') {
-      container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    } else {
-      container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
+    setCurrentIndex((prevIndex) =>
+      direction === 'left'
+        ? Math.max(prevIndex - 1, 0)
+        : Math.min(prevIndex + 1, maxIndex)
+    );
   };
 
+  useEffect(() => {
+    // Auto-center on first project
+    setCurrentIndex(0);
+  }, []);
+
   return (
-    <section id="projects" className="py-16 bg-white text-zinc-800 relative">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold mb-10 text-center">✨ Projects Showcase</h2>
+    <section
+      id="projects"
+      className={`min-h-screen flex flex-col justify-center items-center px-6 md:px-24 py-24 transition-all duration-500 ${
+        darkMode ? 'bg-black text-white' : 'bg-white text-zinc-900'
+      }`}
+    >
+      <div className="text-center mb-12">
+  <motion.h2
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    className={`text-4xl md:text-5xl font-extrabold mb-4`}
+  >
+    My Projects
+  </motion.h2>
 
-        <div className="relative">
-          {/* Scroll Buttons */}
-          <button
-            onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-white shadow-md rounded-full hover:bg-zinc-100 transition"
-            aria-label="Scroll Left"
-          >
-            <ArrowLeftCircle size={28} />
-          </button>
+  <motion.p
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: 0.2 }}
+    className={`text-base md:text-lg max-w-xl mx-auto`}
+  >
+    A selection of apps, websites, and tools I’ve built or contributed to recently.
+  </motion.p>
+</div>
 
-          <button
-            onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 bg-white shadow-md rounded-full hover:bg-zinc-100 transition"
-            aria-label="Scroll Right"
-          >
-            <ArrowRightCircle size={28} />
-          </button>
 
-          {/* Project Cards Row */}
-          <div
-            ref={scrollRef}
-            className="flex gap-6 overflow-x-auto overflow-hidden scroll-smooth scrollbar-hide px-10"
-          >
-            {projects.map((project, index) => (
+     
+      {/* Carousel Display */}
+      <div
+        className="relative w-full h-[500px] flex sm:overflow-x-hidden items-center justify-center perspective-1000"
+        style={{ perspective: '1000px' }}
+      >
+        {projects.map((project, idx) => {
+          const isActive = currentIndex === idx;
+          const isLeft = idx < currentIndex;
+          const isRight = idx > currentIndex;
+
+          let transformStyle = '';
+          if (isLeft) {
+            transformStyle = 'translateX(-100%) scale(0.9) rotateY(20deg)';
+          } else if (isRight) {
+            transformStyle = 'translateX(100%) scale(0.9) rotateY(-20deg)';
+          }
+
+          return (
+            
               <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                className="min-w-[300px] sm:min-w-[350px] bg-[#f9f9f9] rounded-2xl shadow-md p-4 border border-zinc-200"
+                key={idx}
+                initial={false}
+                animate={{
+                  opacity: isActive ? 1 : 0.4,
+                  filter: isActive ? 'blur(0px)' : 'blur(4px)',
+                  transform: isActive ? 'scale(1) rotateY(0deg)' : transformStyle,
+                  zIndex: isActive ? 10 : 0,
+                }}
+                transition={{ duration: 0.5 }}
+                className={`absolute w-[320px] p-6 rounded-2xl shadow-xl border transition-all duration-500 ${
+                  darkMode
+                    ? 'bg-zinc-800 border-zinc-700 text-white'
+                    : 'bg-white border-gray-200 text-zinc-900'
+                } ${!isActive ? 'hidden md:block' : ''}`} // ⬅️ ADD THIS LINE
+                style={{ transformStyle: 'preserve-3d' }}
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="rounded-xl w-full h-48 object-cover mb-4"
-                />
-                <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
-                <p className="text-sm text-zinc-600 mb-4">{project.description}</p>
+                
+            
+              <div className="flex  justify-between items-start mb-3">
+                <h3 className="text-lg font-semibold">{project.title}</h3>
+                <span
+                  className={`text-xs font-semibold px-2 py-1 rounded-full ${
+                    project.status === 'Active'
+                      ? 'bg-green-600 text-white'
+                      : 'bg-yellow-500 text-white'
+                  }`}
+                >
+                  {project.status}
+                </span>
+              </div>
+
+              <p
+                className={`text-sm mb-4 ${
+                  darkMode ? 'text-zinc-300' : 'text-zinc-700'
+                }`}
+              >
+                {project.description}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tech.map((tech, i) => (
+                  <span
+                    key={i}
+                    className={`text-xs px-2 py-1 rounded-md ${
+                      darkMode
+                        ? 'bg-zinc-600 text-white'
+                        : 'bg-zinc-200 text-zinc-800'
+                    }`}
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex gap-2">
                 <a
-                  href={project.github}
+                  href={project.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-blue-600 hover:underline hover:text-blue-800 transition"
+                  className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm font-medium hover:opacity-80 transition ${
+                    darkMode ? 'bg-white text-black' : 'bg-black text-white'
+                  }`}
                 >
-                  <Github size={18} />
-                  GitHub
+                  <Globe size={16} /> Website
                 </a>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+                <a
+                  href={project.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-sm font-medium hover:opacity-80 transition ${
+                    darkMode ? 'bg-white text-black' : 'bg-black text-white'
+                  }`}
+                >
+                  <Github size={16} /> Source
+                </a>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+ {/* Scroll Buttons */}
+ <div className="flex justify-between items-center mb-8 gap-4">
+        <button
+          onClick={() => scroll('left')}
+          disabled={currentIndex === 0}
+          className={`p-2 rounded-full border transition-all disabled:opacity-40 ${
+            darkMode
+              ? 'border-zinc-600 hover:bg-zinc-700'
+              : 'border-zinc-300 hover:bg-gray-200'
+          }`}
+        >
+          <ChevronLeft />
+        </button>
+        <button
+          onClick={() => scroll('right')}
+          disabled={currentIndex === maxIndex}
+          className={`p-2 rounded-full border transition-all disabled:opacity-40 ${
+            darkMode
+              ? 'border-zinc-600 hover:bg-zinc-700'
+              : 'border-zinc-300 hover:bg-gray-200'
+          }`}
+        >
+          <ChevronRight />
+        </button>
+      </div>
+
+      {/* Pagination Dots */}
+      <div className="flex justify-center mt-6 gap-2">
+        {projects.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-3 h-3 rounded-full ${
+              currentIndex === index
+                ? darkMode
+                  ? 'bg-white'
+                  : 'bg-black'
+                : 'bg-gray-400'
+            }`}
+          />
+        ))}
       </div>
     </section>
   );

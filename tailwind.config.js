@@ -9,6 +9,9 @@ export default {
       animation: {
         fadeIn: 'fadeIn 1s ease-out forwards',
       },
+      scrollbarWidth: {
+        none: 'none',
+      },
       keyframes: {
         fadeIn: {
           '0%': { opacity: 0, transform: 'translateY(20px)' },

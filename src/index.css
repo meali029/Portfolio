@@ -6,3 +6,11 @@ html {
 .transition-blur {
   transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
 }
+/* Custom scrollbar hide class */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}
