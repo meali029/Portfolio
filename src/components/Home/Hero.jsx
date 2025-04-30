@@ -57,7 +57,7 @@ const Hero = ({ darkMode }) => {
     }, []);
   return (
     <section
-    className={`relative  h-[45rem] md:h-[40rem] md:pt-0 md:pb-40 flex flex-col justify-center items-center text-center px-6 transition-colors duration-500 ${
+    className={`relative  h-[40rem] md:h-[40rem] md:pt-0 md:pb-0 flex flex-col justify-center items-center text-center px-6 transition-colors duration-500 ${
       darkMode
         ? 'bg-gradient-to-b from-zinc-900 via-zinc-800 to-black text-white'
         : 'bg-white text-black'
@@ -101,7 +101,7 @@ const Hero = ({ darkMode }) => {
   
     {/* Main Content */}
     <motion.div
-      className="flex flex-col justify-center items-center mt-16 md:mt-0"
+      className="flex flex-col justify-center items-center  md:mt-0"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}

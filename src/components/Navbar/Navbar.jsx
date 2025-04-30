@@ -54,7 +54,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
         <div
           className={`flex items-center px-6 py-2 shadow-lg backdrop-blur-md transition-all duration-300
             ${scrolledToTop ? 'h-[60px] rounded-full gap-10' : 'h-[55px] rounded-full gap-6'}
-            ${darkMode ? 'bg-black/80 border border-zinc-800' : 'bg-white/80 border border-zinc-300'}
+            ${darkMode ? 'bg-black/40 border border-zinc-800 ' : 'bg-white/40 border border-zinc-300 '}
           `}
         >
           {/* Logo */}
