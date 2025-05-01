@@ -57,7 +57,7 @@ const Hero = ({ darkMode }) => {
     }, []);
   return (
     <section
-    className={`relative  h-[40rem] md:h-[40rem] md:pt-0 md:pb-0 flex flex-col justify-center items-center text-center px-6 transition-colors duration-500 ${
+    className={`relative  h-[45rem] md:h-[35rem] pt-18 md:pt-0 md:pb-0 flex flex-col justify-center items-center text-center px-6 transition-colors duration-500 ${
       darkMode
         ? 'bg-gradient-to-b from-zinc-900 via-zinc-800 to-black text-white'
         : 'bg-white text-black'
@@ -153,17 +153,19 @@ const Hero = ({ darkMode }) => {
   
         {/* Resume */}
         <a
-          href="/resume.pdf"
-          download
-          className={`px-6 py-3 flex items-center justify-center gap-2 rounded-full transition-all duration-300 hover:scale-105 shadow-md ${
-            darkMode
-              ? 'border border-white text-white hover:bg-white hover:text-black'
-              : 'border border-black text-black hover:bg-black hover:text-white'
-          }`}
-        >
-          <FaDownload size={18} />
-          Resume
-        </a>
+  href="/resume.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className={`px-6 py-3 flex items-center justify-center gap-2 rounded-full transition-all duration-300 hover:scale-105 shadow-md ${
+    darkMode
+      ? 'border border-white text-white hover:bg-white hover:text-black'
+      : 'border border-black text-black hover:bg-black hover:text-white'
+  }`}
+>
+  <FaDownload size={18} />
+  View Resume
+</a>
+
       </motion.div>
        {/* Trigger Notifications Example */}
        {/* <button

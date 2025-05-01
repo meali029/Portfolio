@@ -26,11 +26,11 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           if (entry.isIntersecting) {
             const id = entry.target.id;
             setActiveSection(id);
-            setScrolledToTop(id === 'home');
+            setScrolledToTop(id === 'navbar' ? true : false);
           }
         });
       },
-      { threshold: 0.6 }
+      { threshold: .6 }
     );
 
     sections.forEach(section => observer.observe(section));
@@ -53,7 +53,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
       >
         <div
           className={`flex items-center px-6 py-2 shadow-lg backdrop-blur-md transition-all duration-300
-            ${scrolledToTop ? 'h-[60px] rounded-full gap-10' : 'h-[55px] rounded-full gap-6'}
+            ${scrolledToTop ? 'h-[60px] rounded-full gap-10' : 'h-[55px] rounded-full gap-2'}
             ${darkMode ? 'bg-black/40 border border-zinc-800 ' : 'bg-white/40 border border-zinc-300 '}
           `}
         >
@@ -69,7 +69,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
           </div>
 
           {/* Nav Links */}
-          <ul className={`hidden md:flex text-sm font-medium gap-4 ${darkMode ? 'text-white' : 'text-black'}`}>
+          <ul className={`hidden md:flex text-sm font-medium gap-2  ${darkMode ? 'text-white' : 'text-black'}`}>
             {navItems.map((item, i) => {
               const Icon = item.icon;
               const isActive = activeSection === item.name.toLowerCase();
@@ -92,7 +92,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     className={`ml-1 transition-all duration-300 ${
       scrolledToTop
         ? 'inline'
-        : 'absolute opacity-0 group-hover:opacity-100 top-[-37px] left-[20px] -translate-x-1/2  p-2 text-xs rounded-md shadow-md'
+        : 'absolute opacity-0 group-hover:opacity-100 group-hover:top-[-40px] top-[0px] left-[19px] -translate-x-1/2  p-2 text-xs rounded-md shadow-md bg-zinc-800 text-white'
     } ${darkMode ? ' text-white' : 'text-black'}`}
   >
     {item.name}
@@ -178,8 +178,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
 )}
 
 
-      {/* Spacer for bottom navbar */}
-      {!scrolledToTop && <div className="h-[60px] w-full"></div>}
+     
     </>
   );
 };

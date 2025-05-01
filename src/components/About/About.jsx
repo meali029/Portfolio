@@ -8,7 +8,7 @@ const About = ({ darkMode }) => {
   return (
     <section
       id="about"
-      className={`relative min-h-screen px-6 py-24 flex flex-col md:flex-row items-center justify-center gap-12 transition-all duration-500 overflow-hidden ${
+      className={`relative h-fit px-6 pt-24 pb-6 md:pb-26 md:pt-12 flex flex-col md:flex-row items-center justify-center gap-12 transition-all duration-500 overflow-hidden ${
         darkMode ? 'bg-black text-white' : 'bg-white text-zinc-900'
       }`}
     >
