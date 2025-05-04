@@ -52,7 +52,7 @@ const Experience = ({ darkMode }) => {
         {/* Vertical timeline line */}
         <div
           className={`absolute top-0 left-6 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 ${
-            darkMode ? "bg-blue-400/30" : "bg-blue-600/20"
+            darkMode ? "bg-zinc-400/30" : "bg-zinc-600/20"
           }`}
         ></div>
 
@@ -73,8 +73,8 @@ const Experience = ({ darkMode }) => {
               <div
                 className={`absolute left-5 md:left-1/2 transform md:-translate-x-1/2 top-6 w-4 h-4 rounded-full border-4 z-20 ${
                   darkMode
-                    ? "bg-blue-400 border-black"
-                    : "bg-blue-600 border-white"
+                    ? "bg-white border-black"
+                    : "bg-zinc-900 border-white"
                 }`}
               />
 
@@ -97,7 +97,7 @@ const Experience = ({ darkMode }) => {
                   {/* Role and Icon */}
                   <div className="flex items-center gap-2">
                     <Briefcase
-                      className={darkMode ? "text-blue-400" : "text-blue-600"}
+                      className={darkMode ? "text--400" : "text-e-600"}
                       size={20}
                     />
                     <h3 className="text-lg md:text-xl font-semibold">
