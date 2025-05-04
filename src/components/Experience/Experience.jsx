@@ -1,82 +1,57 @@
 import React from 'react';
-import { FaBriefcase, FaBuilding } from 'react-icons/fa';
+import { Briefcase } from 'lucide-react';
+import { motion } from 'framer-motion';
 
-function Experience() {
+// 🔁 Add experiences here. You can keep adding more!
+const experiences = [
+  {
+    role: "Full Stack Developer Intern",
+    company: "TechNova Pvt Ltd",
+    duration: "Jan 2024 - Apr 2024",
+    description: "Worked on real-time dashboards using MERN stack. Integrated REST APIs and built reusable React components.",
+  },
+  {
+    role: "Freelance Web Developer",
+    company: "Fiverr / Remote",
+    duration: "2023 - Present",
+    description: "Completed over 15 freelance projects. Built portfolio websites, admin dashboards, and responsive landing pages.",
+  },
+  {
+    role: "Front-End Developer",
+    company: "AmitPatel Client",
+    duration: "Oct 2023 - Dec 2023",
+    description: "Designed and developed a client’s personal website using React, Tailwind, and hosted on Vercel.",
+  }
+];
+
+const Experience = () => {
   return (
-    <section id="experience" className="py-16 bg-gray-100 text-zinc-800">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold mb-10 text-center text-gray-900">💼 My Experience</h2>
+    <section id="experience" className="py-16 bg-zinc-50 text-zinc-800">
+      <div className="max-w-4xl mx-auto px-4">
+        <h2 className="text-3xl font-bold mb-10 text-center">💼 Experience Timeline</h2>
 
-        {/* Year Section: 2024 */}
-        <div className="bg-white p-6 rounded-xl shadow-xl mb-8">
-          <h3 className="text-2xl font-semibold text-gray-800 mb-4 text-center">2024</h3>
-          <div className="space-y-4">
-            {/* Job Entry 1 */}
-            <div className="flex items-center space-x-4">
-              <FaBriefcase className="text-xl text-gray-600" />
-              <div>
-                <p className="font-semibold text-gray-800">Web Development Intern</p>
-                <p className="text-gray-600">ABC Company</p>
-                <p className="text-xs text-gray-500">Jan 2024 - Apr 2024</p>
+        <div className="relative border-l-4 border-blue-600 pl-6">
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              viewport={{ once: true }}
+              className="mb-10"
+            >
+              <div className="flex items-center gap-3 mb-1">
+                <Briefcase className="text-blue-600" size={20} />
+                <h3 className="text-xl font-semibold">{exp.role}</h3>
               </div>
-            </div>
-
-            {/* Job Entry 2 */}
-            <div className="flex items-center space-x-4">
-              <FaBriefcase className="text-xl text-gray-600" />
-              <div>
-                <p className="font-semibold text-gray-800">Software Engineer Intern</p>
-                <p className="text-gray-600">XYZ Ltd.</p>
-                <p className="text-xs text-gray-500">Feb 2024 - Jun 2024</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Year Section: 2023 */}
-        <div className="bg-white p-6 rounded-xl shadow-xl mb-8">
-          <h3 className="text-2xl font-semibold text-gray-800 mb-4 text-center">2023</h3>
-          <div className="space-y-4">
-            {/* Job Entry 1 */}
-            <div className="flex items-center space-x-4">
-              <FaBriefcase className="text-xl text-gray-600" />
-              <div>
-                <p className="font-semibold text-gray-800">Junior Developer</p>
-                <p className="text-gray-600">TechSolutions</p>
-                <p className="text-xs text-gray-500">Jan 2023 - Dec 2023</p>
-              </div>
-            </div>
-
-            {/* Job Entry 2 */}
-            <div className="flex items-center space-x-4">
-              <FaBriefcase className="text-xl text-gray-600" />
-              <div>
-                <p className="font-semibold text-gray-800">Intern</p>
-                <p className="text-gray-600">XYZ Ltd.</p>
-                <p className="text-xs text-gray-500">Feb 2023 - Aug 2023</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Year Section: 2022 */}
-        <div className="bg-white p-6 rounded-xl shadow-xl mb-8">
-          <h3 className="text-2xl font-semibold text-gray-800 mb-4 text-center">2022</h3>
-          <div className="space-y-4">
-            {/* Job Entry 1 */}
-            <div className="flex items-center space-x-4">
-              <FaBriefcase className="text-xl text-gray-600" />
-              <div>
-                <p className="font-semibold text-gray-800">Internship</p>
-                <p className="text-gray-600">ABC Corp.</p>
-                <p className="text-xs text-gray-500">Jan 2022 - Jun 2022</p>
-              </div>
-            </div>
-          </div>
+              <span className="text-sm text-zinc-500 mb-1 block">{exp.company} — {exp.duration}</span>
+              <p className="text-sm text-zinc-600 leading-relaxed">{exp.description}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default Experience;
