@@ -32,7 +32,7 @@
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className={`text-4xl md:text-5xl font-extrabold mb-16 md:mb-4`}
+      className={`text-3xl md:text-4xl font-extrabold mb-16 md:mb-4`}
     >
       My Projects
     </motion.h2>

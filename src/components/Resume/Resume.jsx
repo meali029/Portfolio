@@ -97,7 +97,7 @@ const Resume = ({ darkMode }) => {
 
       {/* Skills Section */}
       <div className="text-center mb-8">
-        <h3 className="text-2xl font-semibold mb-4">Skills</h3>
+        <h3 className="text-3xl md:text-4xl font-semibold mb-4">Skills</h3>
         <p className={`text-base ${darkMode ? 'text-zinc-400' : 'text-zinc-700'}`}>
           Technologies & tools I work with:
         </p>
