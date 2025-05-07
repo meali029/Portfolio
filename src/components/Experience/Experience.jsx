@@ -1,14 +1,13 @@
 import React from "react";
 import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
-import experiences from "./experiences"; // Adjust the import path as necessary
-
+import experiences from "./experiences";
 
 const Experience = ({ darkMode }) => {
   return (
     <section
       id="experience"
-      className={`min-h-screen px-6 md:px-24 py-24 transition-all duration-500 ${
+      className={`min-h-fit px-6 md:px-24 pb-6 pt-20 transition-all duration-500 ${
         darkMode ? "bg-black text-white" : "bg-white text-zinc-900"
       }`}
     >

@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Home/Hero";
 import About from "./components/About/About";
@@ -12,13 +12,16 @@ const App = () => {
   const [darkMode, setDarkMode] = useState(true);
 
   return (
-    <div className={darkMode ? 'dark' : ''}>
+    <div className={darkMode ? "dark" : ""}>
       <section id="navbar">
-
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       </section>
 
-      <main className= {` pt-24 bg-white ${darkMode?'dark:bg-zinc-900':'*:  '} transition-colors duration-500`}>
+      <main
+        className={` pt-24 bg-white ${
+          darkMode ? "dark:bg-zinc-900" : "*:  "
+        } transition-colors duration-500`}
+      >
         <section id="home">
           <Hero darkMode={darkMode} />
         </section>
@@ -31,25 +34,38 @@ const App = () => {
           <Project darkMode={darkMode} />
         </section>
 
-        {/* Resume Section - In Development */}
-<section id="resume" >
-    <Resume darkMode={darkMode} />
+        <section id="resume">
+          <Resume darkMode={darkMode} />
+        </section>
 
-</section>
+        <section id="experience">
+          <Experience darkMode={darkMode} />
+        </section>
 
-{/* Experience Section - In Development */}
-<section id="experience">
-    <Experience darkMode={darkMode} />
-</section>
-
-{/* Contact Section - In Development */}
-<section id="contact" >
- 
-    <Contact darkMode={darkMode} />
-
-</section>
-
+        <section id="contact">
+          <Contact darkMode={darkMode} />
+        </section>
       </main>
+      {/* <footer className={`bg-white ${darkMode?"bg-zinc-900":""} text-center py-4 pb-20`}>
+        <p className={`text-sm text-gray-500 ${darkMode?"text-gray-400":""}`}>
+          &copy; 2025 Mehboob Ali. All rights reserved.
+        </p>
+     
+       
+        <p className={`text-sm text-gray-500 ${darkMode?"text-gray-400":""}`}>
+          Developed by{" "}
+          <a
+            href="https://www.linkedin.com/in/mehboob-ali2004/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:underline"
+          >
+            Mehboob Ali
+          </a>
+        </p>
+     
+        
+        </footer> */}
     </div>
   );
 };

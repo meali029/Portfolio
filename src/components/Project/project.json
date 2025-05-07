@@ -4,40 +4,47 @@
       "description": "An online platform with structured lessons, quizzes, and performance tracking built using MERN stack.",
       "status": "Active",
       "tech": ["MongoDB", "Express", "React", "Node.js"],
-      "website": "#",
-      "source": "#"
+      "source": "https://github.com/israrahmad831/Learning-Website"
     },
     {
-      "title": "Learning Platform",
-      "description": "An online platform with structured lessons, quizzes, and performance tracking built using MERN stack.",
-      "status": "In Progress",
-      "tech": ["MongoDB", "Express", "React", "Node.js"],
-      "website": "#",
-      "source": "#"
-    },
-    {
-      "title": "Learning Platform",
-      "description": "An online platform with structured lessons, quizzes, and performance tracking built using MERN stack.",
+      "title": "Travel Website",
+      "description": "A travel website great interface with a focus on user experience, built using MERN stack.",
       "status": "Active",
       "tech": ["MongoDB", "Express", "React", "Node.js"],
-      "website": "#",
-      "source": "#"
+      "website": "https://travel-explore-seven.vercel.app/",
+      "source": "https://github.com/meali029/travelExplorer"
     },
     {
-      "title": "Learning Platform",
-      "description": "An online platform with structured lessons, quizzes, and performance tracking built using MERN stack.",
-      "status": "In Progress",
+      "title": "Amit Patel",
+      "description": "A dental website designed for a dentist, emphasizing seamless user experience and functionality, developed using the MERN stack.",
+      "status": "Active",
       "tech": ["MongoDB", "Express", "React", "Node.js"],
-      "website": "#",
-      "source": "#"
-    },
-    {
-      "title": "Learning Platform",
-      "description": "An online platform with structured lessons, quizzes, and performance tracking built using MERN stack.",
-      "status": "In Progress",
-      "tech": ["MongoDB", "Express", "React", "Node.js"],
-      "website": "#",
-      "source": "#"
+      "source": "https://github.com/meali029/Amit-patel"
     }
+    ,
+    {
+      "title": "Task manager",
+      "description": "A task manager application with a focus on user experience, built in Java, Spring, and javafx.",
+      "status": "Active",
+      "tech": ["Java", "Spring", "JavaFX"],
+      "source": "https://github.com/meali029/taskmanager"
+    },
+    {
+      "title": "Portfolio",
+      "description": "My personal portfolio website showcasing my projects and skills.",
+      "status": "Active",
+      "tech": ["React", "JavaScript", "CSS"],
+      "source": "https://github.com/meali029/Portfolio"
+    },
+    
+   
+    {
+      "title": "Weather App",
+      "description": "A weather application that provides real-time weather updates.",
+      "status": "Active",
+      "tech": ["JavaScript", "CSS"],
+      "source": "https://github.com/meali029/WeatherApp-"
+    }
+    
   ]
   
