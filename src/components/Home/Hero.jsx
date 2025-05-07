@@ -48,13 +48,13 @@ const Hero = ({ darkMode }) => {
   //   return () => clearInterval(blinkInterval);
   // }, []);
     // Function to trigger a notification
-    const triggerNotification = (message, type) => {
-      setNotification({ message, type });
-    };
-    useEffect(() => {
-      // Trigger a "Website under construction" notification on component mount
-      triggerNotification('Website is under development 👨‍💻', 'warning');
-    }, []);
+    // const triggerNotification = (message, type) => {
+    //   setNotification({ message, type });
+    // };
+    // useEffect(() => {
+    //   // Trigger a "Website under construction" notification on component mount
+    //   triggerNotification('Website is under development 👨‍💻', 'warning');
+    // }, []);
   return (
     <section
     className={`relative  h-[45rem] md:h-[35rem] pt-18 md:pt-0 md:pb-0 flex flex-col justify-center items-center text-center px-6 transition-colors duration-500 ${
@@ -177,14 +177,14 @@ const Hero = ({ darkMode }) => {
 
       {/* Notification Display */}
     </motion.div>
-      {notification && (
+      {/* {notification && (
         <Notification
           message={notification.message}
           type={notification.type}
           autoHide={true}
           onClose={() => setNotification(null)}
         />
-      )}
+      )} */}
   </section>
   
   );

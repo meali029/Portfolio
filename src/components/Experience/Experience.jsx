@@ -1,33 +1,8 @@
 import React from "react";
 import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
+import experiences from "./experiences"; // Adjust the import path as necessary
 
-const experiences = [
-  {
-    role: "Full Stack Developer Intern",
-    company: "Sillicom Technologies",
-    duration: "Sep 2024 - Jan 2025",
-    logo: "https://www.sillicom.com/assets/logo-Dt5DQYqu.png",
-    description:
-      "Worked on real-time dashboards using MERN stack. Integrated REST APIs and built reusable React components.",
-  },
-  {
-    role: "Freelance Web Developer",
-    company: "Upwork / Remote",
-    duration: "2024 - Present",
-    logo: "https://e7.pngegg.com/pngimages/744/960/png-clipart-upwork-computer-icons-freelancer-others-miscellaneous-text-thumbnail.png",
-    description:
-      "Completed over 15 freelance projects. Built portfolio websites, admin dashboards, and responsive landing pages.",
-  },
-  {
-    role: "Front-End Developer",
-    company: "Freelance",
-    duration: "Sep 2023 - Dec 2023",
-    logo: "https://static.vecteezy.com/system/resources/thumbnails/009/317/554/small/remote-work-icon-logo-illustration-employee-symbol-template-for-graphic-and-web-design-collection-free-vector.jpg",
-    description:
-      "Designed and developed a client’s personal website using React, Tailwind, and hosted on Vercel.",
-  },
-];
 
 const Experience = ({ darkMode }) => {
   return (
@@ -38,7 +13,7 @@ const Experience = ({ darkMode }) => {
       }`}
     >
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Experience Timeline</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">Experience</h2>
         <p
           className={`text-base md:text-lg ${
             darkMode ? "text-zinc-300" : "text-zinc-600"
@@ -64,7 +39,7 @@ const Experience = ({ darkMode }) => {
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className={`relative mb-16 md:flex md:items-center ${
                 isLeft ? "md:flex-row-reverse" : "md:flex-row"
               }`}

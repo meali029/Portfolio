@@ -43,15 +43,10 @@ const App = () => {
 </section>
 
 {/* Contact Section - In Development */}
-<section id="contact" className="relative overflow-hidden">
-  <div className="blur-sm pointer-events-none opacity-60">
+<section id="contact" >
+ 
     <Contact darkMode={darkMode} />
-  </div>
-  <div className="absolute inset-0 flex items-center justify-center z-10">
-    <span className="bg-yellow-400 text-black font-semibold px-4 py-2 rounded shadow-lg">
-      ⚠️ Contact Section - Currently in Development
-    </span>
-  </div>
+
 </section>
 
       </main>

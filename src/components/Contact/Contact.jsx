@@ -1,81 +1,67 @@
-import React, { useState } from 'react';
+import React from "react";
+import { motion } from "framer-motion";
+import { Linkedin } from "lucide-react";
 
-function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Here you can add your form submission logic (e.g., send an email or save to database)
-    alert('Form submitted!');
-  };
-
+const Contact = ({ darkMode }) => {
   return (
-    <section id="contact" className="py-16  bg-gray-100 text-zinc-800">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold mb-10 text-center text-gray-900">📬 Get in Touch</h2>
+    <section
+      id="contact"
+      className={`h-350px px-6 md:px-24 py-24 transition-all duration-500 ${
+        darkMode ? "bg-black text-white" : "bg-white text-zinc-800"
+      }`}
+    >
+      <div className="max-w-4xl mx-auto text-center">
+        {/* Header */}
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", stiffness: 80, damping: 15 }}
+          className="text-3xl md:text-4xl font-bold mb-6"
+        >
+          Let’s Connect!
+        </motion.h2>
 
-        <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-xl max-w-lg mx-auto">
-          <div className="mb-4">
-            <label htmlFor="name" className="block text-lg font-medium text-gray-700">Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", stiffness: 80, damping: 15, delay: 0.2 }}
+          className={`mb-12 text-lg ${darkMode ? "text-zinc-400" : "text-zinc-600"}`}
+        >
+         Got a project, collaboration idea, or just wanna chat about tech? Hit me up on LinkedIn.
+        </motion.p>
 
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-lg font-medium text-gray-700">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
-
-          <div className="mb-4">
-            <label htmlFor="message" className="block text-lg font-medium text-gray-700">Message</label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              rows="5"
-              required
-            />
-          </div>
-
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition"
-          >
-            Send Message
-          </button>
-        </form>
+        {/* LinkedIn Button */}
+        <motion.a
+          href="https://www.linkedin.com/in/mehboob-ali2004/"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className={`inline-flex items-center gap-3 bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg transition ${
+            darkMode ? "hover:bg-blue-500" : "hover:bg-blue-700"
+          }`}
+        >
+          <Linkedin size={24} />
+          Connect on LinkedIn
+        </motion.a>
       </div>
+
+      {/* Decorative Animation */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        className="absolute inset-0 pointer-events-none"
+      >
+        <div
+          className="w-64 h-64 bg-blue-600 rounded-full blur-3xl opacity-20 absolute -bottom-20 -left-20"
+        ></div>
+        <div
+          className="w-64 h-64 bg-purple-600 rounded-full blur-3xl opacity-20 absolute -top-20 -right-20"
+        ></div>
+      </motion.div>
     </section>
   );
-}
+};
 
 export default Contact;

@@ -132,7 +132,7 @@
                       darkMode ? 'bg-white text-black' : 'bg-black text-white'
                     }`}
                   >
-                    <Globe size={16} /> WebsitE
+                    <Globe size={16} /> Website
                   </a>
                   <a
                     href={project.source}
