@@ -90,7 +90,7 @@ const Resume = ({ darkMode }) => {
             <Eye size={18} /> View Resume
           </a>
           <a
-            href="/resume.pdf"
+            href={CV}
             download
             className={`flex items-center gap-2 justify-center px-5 py-3 rounded-md text-sm font-medium transition ${
               darkMode
