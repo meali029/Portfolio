@@ -61,7 +61,7 @@ const Hero = ({ darkMode }) => {
   // }, []);
   return (
     <section
-      className={`relative  h-[45rem] md:h-[35rem] pt-18 md:pt-0 md:pb-0 flex flex-col justify-center items-center text-center px-6 transition-colors duration-500 ${
+      className={`relative  h-[46rem] md:h-[30rem] pt-5 md:pt-0 md:pb-0 flex flex-col justify-center items-center text-center px-6 transition-colors duration-500 ${
         darkMode
           ? "bg-gradient-to-b from-zinc-900 via-zinc-800 to-black text-white"
           : "bg-white text-black"
