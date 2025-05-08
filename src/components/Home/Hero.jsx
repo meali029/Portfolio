@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope, FaDownload } from "react-icons/fa";
 import { motion } from "framer-motion";
-import Notification from "../../components/Notification/Notification";
+// import Notification from "../../components/Notification/Notification";
+import CV from "../../assets/resume.pdf";
 
 const typingTexts = [
   "Full Stack Developer",
@@ -155,7 +156,7 @@ const Hero = ({ darkMode }) => {
 
           {/* Resume */}
           <a
-            href="/resume.pdf"
+            href={CV}
             target="_blank"
             rel="noopener noreferrer"
             className={`px-6 py-3 flex items-center justify-center gap-2 rounded-full transition-all duration-300 hover:scale-105 shadow-md ${

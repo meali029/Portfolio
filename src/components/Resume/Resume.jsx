@@ -15,7 +15,7 @@ import {
   SiFramer,
   SiGit,
 } from "react-icons/si";
-import Resum from "../../assets/resume.pdf";
+import CV from "../../assets/resume.pdf";
 
 const skills = [
   { name: "HTML", icon: <SiHtml5 className="text-orange-500" /> },
@@ -78,7 +78,7 @@ const Resume = ({ darkMode }) => {
 
         <div className="flex flex-col md:flex-row gap-4 justify-center mt-6">
           <a
-            href={Resum}
+            href={CV}
             target="_blank"
             rel="noopener noreferrer"
             className={`flex items-center gap-2 justify-center px-5 py-3 rounded-md text-sm font-medium transition ${
