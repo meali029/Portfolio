@@ -14,6 +14,13 @@
       "website": "https://travel-explore-seven.vercel.app/",
       "source": "https://github.com/meali029/travelExplorer"
     },
+     {
+      "title": "Cartly (E-commerce)",
+      "description": "An e-commerce website with a focus on user experience, built using MERN stack.",
+      "status": "working",
+      "tech": ["MongoDB", "Express", "React", "Node.js"],
+      "source": "https://github.com/meali029/Cartly"
+    },
     {
       "title": "Amit Patel",
       "description": "A dental website designed for a dentist, emphasizing seamless user experience and functionality, developed using the MERN stack.",
