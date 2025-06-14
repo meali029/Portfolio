@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import profilePic from "../../assets/mehboob.jpg";
+import profilePic from "../../assets/mehboob.png";
 import { motion, AnimatePresence } from "framer-motion";
 
 const About = ({ darkMode }) => {
