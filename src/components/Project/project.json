@@ -17,9 +17,18 @@
      {
       "title": "Cartly (E-commerce)",
       "description": "An e-commerce website with a focus on user experience, built using MERN stack.",
-      "status": "working",
+      "status": "Active",
       "tech": ["MongoDB", "Express", "React", "Node.js"],
+      "website": "https://cartly-shop.vercel.app/",
       "source": "https://github.com/meali029/Cartly"
+    },
+    {
+      "title": "Roomsy",
+      "description": "Finding roommates made easy in Pakistan. And also your privacy is our priority.",
+      "status": "Working",
+      "tech": ["Next.js", "Supabase", "Prisma", "Tailwind CSS", "Node.js"],
+      "website": "https://roomsy-pk.vercel.app/",
+      "source": "https://github.com/meali029/Roomsy"
     },
     {
       "title": "Amit Patel",
