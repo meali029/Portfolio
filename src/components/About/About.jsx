@@ -48,16 +48,32 @@ const About = ({ darkMode }) => {
                 🚀 Tech Stack
               </h3>
               <ul className="grid grid-cols-2 gap-4 text-center font-medium text-sm">
-                <li className="bg-white text-zinc-800 px-4 py-2 rounded-xl shadow-md border border-gray-200 hover:bg-gray-100 transition">
+                <li className={`px-4 py-2 rounded-xl shadow-md border transition ${
+                  darkMode
+                    ? "bg-zinc-700 text-white border-zinc-600 hover:bg-zinc-600"
+                    : "bg-white text-zinc-800 border-gray-200 hover:bg-gray-100"
+                }`}>
                   MERN Stack
                 </li>
-                <li className="bg-white text-zinc-800 px-4 py-2 rounded-xl shadow-md border border-gray-200 hover:bg-gray-100 transition">
+                <li className={`px-4 py-2 rounded-xl shadow-md border transition ${
+                  darkMode
+                    ? "bg-zinc-700 text-white border-zinc-600 hover:bg-zinc-600"
+                    : "bg-white text-zinc-800 border-gray-200 hover:bg-gray-100"
+                }`}>
                   Tailwind CSS
                 </li>
-                <li className="bg-white text-zinc-800 px-4 py-2 rounded-xl shadow-md border border-gray-200 hover:bg-gray-100 transition">
+                <li className={`px-4 py-2 rounded-xl shadow-md border transition ${
+                  darkMode
+                    ? "bg-zinc-700 text-white border-zinc-600 hover:bg-zinc-600"
+                    : "bg-white text-zinc-800 border-gray-200 hover:bg-gray-100"
+                }`}>
                   React
                 </li>
-                <li className="bg-white text-zinc-800 px-4 py-2 rounded-xl shadow-md border border-gray-200 hover:bg-gray-100 transition">
+                <li className={`px-4 py-2 rounded-xl shadow-md border transition ${
+                  darkMode
+                    ? "bg-zinc-700 text-white border-zinc-600 hover:bg-zinc-600"
+                    : "bg-white text-zinc-800 border-gray-200 hover:bg-gray-100"
+                }`}>
                   APIs & Animations
                 </li>
               </ul>
@@ -126,7 +142,7 @@ const About = ({ darkMode }) => {
           }`}
         >
           Real-world builds? A <strong>Travel Website</strong>, a{" "}
-          <strong>Learning Platform</strong>, and interactive portfolios —
+          <strong>Learning Platform</strong>, and interactive portfolios
           designed to solve problems and wow users 🚀.
         </p>
         <p
@@ -134,7 +150,7 @@ const About = ({ darkMode }) => {
             darkMode ? "text-zinc-300" : "text-zinc-800"
           }`}
         >
-          I’m fascinated by the lifecycle of web apps — from design to
+          I’m fascinated by the lifecycle of web apps from design to
           deployment. Let’s innovate together and build something next-level 💡.
         </p>
       </motion.div>

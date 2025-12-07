@@ -19,7 +19,7 @@ const Notification = ({ message, type }) => {
 
   return (
     <div
-      className={`absolute w-2 top-1 left-1/2 transform -translate-x-1/2 p-4 rounded-md shadow-md ${getNotificationStyle()} transition-all duration-300`}
+      className={`fixed top-4 left-1/2 transform -translate-x-1/2 min-w-[300px] max-w-md p-4 rounded-md shadow-md ${getNotificationStyle()} transition-all duration-300 z-50`}
     >
       <div className="flex justify-between items-center">
         <p>{message}</p>

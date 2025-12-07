@@ -6,7 +6,7 @@ const Contact = ({ darkMode }) => {
   return (
     <section id="contact">
       <div
-        className={`h-350px px-6 md:px-24 pt-12 pb-24 transition-all duration-500 ${
+        className={`min-h-[350px] px-6 md:px-24 pt-12 pb-24 transition-all duration-500 ${
           darkMode ? "bg-black text-white" : "bg-white text-zinc-800"
         }`}
       >
@@ -43,8 +43,8 @@ const Contact = ({ darkMode }) => {
             href="https://www.linkedin.com/in/mehboob-ali2004/"
             target="_blank"
             rel="noopener noreferrer"
-            className={`relative inline-flex items-center gap-3 px-6 py-3 rounded-full shadow-lg overflow-hidden transition duration-200 ${
-              darkMode ? "bg-blue-600 hover:bg-blue-500" : "bg-blue-600 text-white hover:bg-blue-700"
+            className={`relative inline-flex items-center gap-3 px-6 py-3 rounded-full shadow-lg overflow-hidden transition duration-200 text-white ${
+              darkMode ? "bg-blue-600 hover:bg-blue-500" : "bg-blue-600 hover:bg-blue-700"
             }`}
           >
             <Linkedin size={24} />

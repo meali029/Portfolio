@@ -42,15 +42,15 @@ const Hero = ({ darkMode }) => {
     );
 
     return () => clearTimeout(timeout);
-  }, [subIndex, index, reverse]);
+  }, [subIndex, index, reverse, typingTexts]);
 
   // Blinking Cursor
-  // useEffect(() => {
-  //   const blinkInterval = setInterval(() => {
-  //     setBlink((prev) => !prev);
-  //   }, 500);
-  //   return () => clearInterval(blinkInterval);
-  // }, []);
+  useEffect(() => {
+    const blinkInterval = setInterval(() => {
+      setBlink((prev) => !prev);
+    }, 500);
+    return () => clearInterval(blinkInterval);
+  }, []);
   // Function to trigger a notification
   // const triggerNotification = (message, type) => {
   //   setNotification({ message, type });
@@ -79,7 +79,7 @@ const Hero = ({ darkMode }) => {
             repeatType: "loop",
             ease: "easeInOut",
           }}
-          className={`absolute md:-z-10  w-70 h-30 md:w-30 md:h-60 blur-2xl rounded-full ${
+          className={`absolute md:-z-10 w-[280px] h-[120px] md:w-[120px] md:h-[240px] blur-2xl rounded-full ${
             darkMode ? "bg-white" : "bg-black"
           }`}
           style={{ top: "-40px", left: "-40px" }}

@@ -67,11 +67,15 @@ const Experience = ({ darkMode }) => {
                     src={exp.logo}
                     alt={`${exp.company} logo`}
                     className="w-8 h-8 rounded-full border object-contain"
+                    onError={(e) => {
+                      e.target.src = "https://via.placeholder.com/32?text=" + exp.company.charAt(0);
+                      e.target.onerror = null;
+                    }}
                   />
                   {/* Role and Icon */}
                   <div className="flex items-center gap-2">
                     <Briefcase
-                      className={darkMode ? "text--400" : "text-e-600"}
+                      className={darkMode ? "text-zinc-400" : "text-blue-600"}
                       size={20}
                     />
                     <h3 className="text-lg md:text-xl font-semibold">

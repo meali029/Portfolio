@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import projects from "./project.json";
 import { Globe, Github, ChevronLeft, ChevronRight } from "lucide-react";
+import ProjectThumbnail from "./ProjectThumbnail";
+import { generateProjectId } from "../../utils/projectUtils";
 
 const Project = ({ darkMode }) => {
+  // Show only first 4 featured projects
+  const featuredProjects = projects.slice(0, 4);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const maxIndex = projects.length - 1;
+  const maxIndex = featuredProjects.length - 1;
 
   const scroll = (direction) => {
     setCurrentIndex((prevIndex) =>
@@ -27,33 +32,57 @@ const Project = ({ darkMode }) => {
         darkMode ? "bg-black text-white" : "bg-white text-zinc-900"
       }`}
     >
-      <div className="text-center ">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className={`text-3xl md:text-4xl font-extrabold mb-16 md:mb-4`}
-        >
-          My Projects
-        </motion.h2>
+      {/* Header with View All Button */}
+      <div className="w-full max-w-6xl mb-8">
+        <div className="flex justify-between items-center mb-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-extrabold"
+          >
+            My Projects
+          </motion.h2>
+          
+          {/* View All Projects Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <Link
+              to="/projects"
+              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium transition-all ${
+                darkMode
+                  ? "bg-white text-black hover:bg-zinc-100"
+                  : "bg-black text-white hover:bg-zinc-800"
+              }`}
+            >
+              View All Projects
+              <ChevronRight size={18} />
+            </Link>
+          </motion.div>
+        </div>
 
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className={`text-base md:text-lg max-w-xl mx-auto`}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className={`text-base md:text-lg max-w-2xl ${
+            darkMode ? "text-zinc-400" : "text-zinc-600"
+          }`}
         >
-          A selection of apps, websites, and tools I’ve built or contributed to
+          A selection of apps, websites, and tools I've built or contributed to
           recently.
         </motion.p>
       </div>
 
       {/* Carousel Display */}
       <div
-        className="relative w-full h-[400px] md:h-[350px] flex sm:overflow-x-hidden items-center justify-center perspective-1000"
+        className="relative w-full h-[500px] md:h-[450px] flex overflow-x-hidden items-center justify-center perspective-1000"
         style={{ perspective: "1000px" }}
       >
-        {projects.map((project, idx) => {
+        {featuredProjects.map((project, idx) => {
           const isActive = currentIndex === idx;
           const isLeft = idx < currentIndex;
           const isRight = idx > currentIndex;
@@ -76,15 +105,25 @@ const Project = ({ darkMode }) => {
                 zIndex: isActive ? 10 : 0,
               }}
               transition={{ duration: 0.5 }}
-              className={`absolute w-[320px] p-6 rounded-2xl shadow-xl border transition-all duration-500 ${
+              className={`absolute w-[340px] p-0 rounded-2xl shadow-xl border overflow-hidden transition-all duration-500 ${
                 darkMode
                   ? "bg-zinc-800 border-zinc-700 text-white"
-                  : "bg-white border-gray-200 text-zinc-900"
-              } ${!isActive ? "hidden md:block" : ""}`} // ⬅️ ADD THIS LINE
+                  : "bg-white border-gray-300 text-zinc-900 shadow-2xl"
+              } ${!isActive ? "pointer-events-none hidden md:block" : "block"}`}
               style={{ transformStyle: "preserve-3d" }}
             >
+              {/* Thumbnail */}
+              <Link to={`/projects/${generateProjectId(project)}`} className="block">
+                <div className="h-[200px] overflow-hidden">
+                  <ProjectThumbnail project={project} size="medium" darkMode={darkMode} />
+                </div>
+              </Link>
+              
+              <div className="p-6">
               <div className="flex  justify-between items-start mb-3">
-                <h3 className="text-lg font-semibold">{project.title}</h3>
+                <Link to={`/projects/${generateProjectId(project)}`}>
+                  <h3 className="text-lg font-semibold hover:underline">{project.title}</h3>
+                </Link>
                 <span
                   className={`text-xs font-semibold px-2 py-1 rounded-full ${
                     project.status === "Active"
@@ -142,6 +181,7 @@ const Project = ({ darkMode }) => {
                   <Github size={16} /> Source
                 </a>
               </div>
+              </div>
             </motion.div>
           );
         })}
@@ -174,7 +214,7 @@ const Project = ({ darkMode }) => {
 
       {/* Pagination Dots */}
       <div className="flex justify-center mt-6 md:mt-3 gap-2">
-        {projects.map((_, index) => (
+        {featuredProjects.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
