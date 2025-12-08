@@ -34,7 +34,7 @@ const Project = ({ darkMode }) => {
     >
       {/* Header with View All Button */}
       <div className="w-full max-w-6xl mb-8">
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -49,10 +49,11 @@ const Project = ({ darkMode }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-full sm:w-auto"
           >
             <Link
               to="/projects"
-              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium transition-all ${
+              className={`inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 text-sm sm:text-base rounded-full font-medium transition-all w-full sm:w-auto ${
                 darkMode
                   ? "bg-white text-black hover:bg-zinc-100"
                   : "bg-black text-white hover:bg-zinc-800"
